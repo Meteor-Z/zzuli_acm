@@ -25,8 +25,9 @@ sudo apt install lrzsz # xshell 进行传输文件
 
 ## 项目大致结构
 
-`frontend`是前端，需要发送api请求到后端，所以如果要部署项目的话，那么就需要修改前端的api请求
-`backend`是后端，是所有的文件，默认生成的dist文件已经在此里面了，但是每次配置的ip地址不同，需要根据需要构建前端，然后放到`backend/fronted/html/`里面即可。
+- `frontend`是前端，需要发送api请求到后端，所以如果要部署项目的话，那么就需要修改前端的api请求
+- `backend`是后端，是所有的文件，默认生成的dist文件已经在此里面了，但是每次配置的ip地址不同，需要根据需要构建前端，然后放到`backend/fronted/html/`里面即可。
+- `template`是模板，导入到数据库里面去的。
 
 以下是部署此项目的大致流程
 
@@ -92,7 +93,24 @@ password: mysqlpassword
 
 模板在：`zzuli_gplt/template`里面，有一份excel表格，里面有两个sheet,根据模板的样子填写即可，然后导入到数据里面即可
 
-`注意：这里id要保证唯一，并且数据一定要对，否贼后台算分数的时候会错误`
+`注意：这里id要保证唯一，并且数据一定要对，否贼后台算分数的时候会错误`,`并且teamID一定要对应`,以下是例子
+
+- 队伍清单
+
+```text
+TeamID   TeamName               Class
+231001    莫比乌斯反演队友      计算机科学与技术xx-xx班级
+```
+
+- 成员清单
+
+```text
+team_id team          class             stuid            name
+231001 莫比乌斯反演队友 计算机科学与技术 542xxxxxxxxx 王小明
+231001 莫比乌斯反演队友 计算机科学与技术 542xxxxxxxxx 小王
+```
+
+`注意team_id一定要对其，并且要唯一`
 
 ## 管理界面
 
