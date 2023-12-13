@@ -115,3 +115,29 @@ team_id team          class             stuid            name
 ## 管理界面
 
 管理界面默认即使`(http://localhost/manager_2023`，这里面填写对应的`PTA_Session`和`Problem_Set`即可，并且修改分数也可以的。
+
+## 结束之后
+
+### 开启关闭相关服务
+
+docker-compose可以进行相应的数据管理，
+
+```text
+前端服务名：zzulirank-frontend
+后端服务名：zzulirank-backend
+爬虫脚本服务名：zzulirank-data_updater
+数据库服务名：zzulirank-mysql
+```
+
+```shell
+# 开启相关的服务名
+docker-compose unpause xxxxx # xxx 上面的服务名
+# 关闭相关的服务器名
+docker-compos pause xxxx
+```
+
+比赛结束之后，就可以停止爬虫脚本的工作了，只让其他的工作，供别人展示。
+
+### 重新开启一个新的榜单
+
+只要将数据库中的表格导入成新的数据库，然后再榜单页面中重新设置新的`Session`和`Problem_set`即可生成新的榜单。
