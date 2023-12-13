@@ -1,3 +1,5 @@
+<!-- 这里需要改变ip地址，前端需要发送请求，需要改动到这里 -->
+<!-- 全局搜索axios请求，然后更改ip地址即可，默认是 localhost:3000 -->
 <template>
     <div class="table">
         <el-row justify="center">

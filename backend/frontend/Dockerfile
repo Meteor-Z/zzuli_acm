@@ -8,3 +8,5 @@ COPY ./conf.d/default.conf /etc/nginx/conf.d/
 COPY ./html/dist /home/nginx/vue
 
 EXPOSE 8082
+
+# 以上完全不需要改动

@@ -1,3 +1,5 @@
+<!-- 这里需要改变ip地址，前端需要发送请求，需要改动到这里 -->
+<!-- 全局搜索axios请求，然后更改ip地址即可，默认是 localhost:3000 -->
 <template>
   <el-backtop :right="100" :bottom="100" />
     <div class="title-container">
@@ -112,7 +114,7 @@ export default {
 
     // 获取比赛时间数据
     fetchCompetitionTimes() {
-      axios.get('http://101.133.228.198:3000/competition/time')
+      axios.get('http://localhost:3000/competition/time')
         .then(response => {
           const start_to_local = new Date(response.data[0].Start_time).toLocaleString();
           const end_to_local = new Date(response.data[0].End_time).toLocaleString();
@@ -127,7 +129,7 @@ export default {
     },
 
     fetchCompetitionTitle() {
-      axios.get('http://101.133.228.198:3000/competition/data')
+      axios.get('http://localhost:3000/competition/data')
         .then(response => {
           this.title = response.data[0].Title;
         })

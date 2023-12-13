@@ -1,3 +1,5 @@
+# docker进行一键部署，此文件可以修改 docker 部署的端口号等
+# 详细请看下面注释
 version : '3'
 services:
   zzulirank-data_updater:
@@ -12,22 +14,24 @@ services:
     depends_on:
       - zzulirank-mysql
 
+# 后端配置
   zzulirank-backend:
     container_name: zzulirank-backend
     build: 
       context: ./backend
     restart: always
     ports:
-      - "3000:3000"
+      - "3000:3000" # 这里不需要改动，前端api请求发送的地方就是3000这个端口
     depends_on:
       - zzulirank-mysql
 
+# 前端
   zzulirank-frontend:
     container_name: zzulirank-frontend
     image: nginx:1.15-alpine
     restart: always
     ports:
-      - "8082:8082"
+      - "80:8082" # 默认是在80端口访问，如果说你要让别人在其他端口上访问，只改前面的端口号就行。后面的那个不用改
     volumes:
       - ./frontend/html/dist:/home/nginx/vue
       - ./frontend/logs:/var/log/nginx
@@ -35,6 +39,7 @@ services:
     depends_on:
       - zzulirank-backend
 
+# 数据库
   zzulirank-mysql:
     container_name: zzulirank-mysql
     image: mysql:5.6
@@ -44,6 +49,6 @@ services:
       MYSQL_USER: frex
       MYSQL_PASSWORD: frexcheat
     ports:
-      - "6130:3306"
+      - "3306:3306" # 跟上面一样，也是从3306端口访问就行了，如果要改，改前面的那个
     volumes:
       - ./mysql:/var/lib/mysql
