@@ -33,7 +33,7 @@ sudo apt install lrzsz # xshell 进行传输文件
 
 ### 前端
 
-前端需要修改`api`请求地址，并且使用`nodejs`进行编译生成目标文件`dist`,并且放入到`backend/html`文件中即可。
+前端需要修改`api`请求地址，并且使用`nodejs`进行编译生成目标文件`dist`,并且放入到`backend/frontend/html`文件中即可。
 
 需要修改的api地址如下：
 
@@ -53,7 +53,7 @@ npm install # 下载相关插件
 npm run build # 生成 dist文件
 ```
 
-dist文件即是目标文件，放入到`backend/frontend/html/`里覆盖dist文件即可。
+dist文件即是目标文件，放入到`backend/frontend/html/dist`里覆盖dist文件即可。
 
 ### 后端
 
