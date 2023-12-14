@@ -11,6 +11,8 @@
 ```shell
 sudo systemctl stop apache2.service # 暂停apache2
 sudo systemctl stop mysql.service # 暂停mysql
+ps -ef | grep nginx
+kill -9 xxxx # nginx 查到的PID端口号
 ```
 
 如果想换占用的端口，请修改`backend/docker-compose.yml`里面的内容，（有注释，请自行修改相关端口号）
@@ -30,6 +32,9 @@ sudo systemctl stop mysql.service # 暂停mysql
 以ubuntu版本为例，如果是其他版本，换一下包管理器就可以了
 
 ```shell
+sudo apt install docker-ce # 每一个发行版是不一样的
+sudo systemctl start docker.service # 启动 docker
+# 每一个版本是不一样的，下面部署的时候可以根据报错信息来安装对应的软件
 sudo apt install docker-compose # 运行 docker 使用的
 sudo apt install lrzsz # xshell 进行传输文件
 ```
