@@ -1,5 +1,7 @@
 # zzuli_gplt
 
+如有任何问题，都可以直接提出 issuse 与 pr。
+
 ## 软件前置要求
 
 在linux平台上需要的前置软件需要，这里使用的是 xshell连接数据库进行平台部署，然后navicat连接数据库进行修改信息，docker在linux上运行，然后将将项目运行起来
