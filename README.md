@@ -4,6 +4,15 @@
 
 在linux平台上需要的前置软件需要，这里使用的是 xshell连接数据库进行平台部署，然后navicat连接数据库进行修改信息，docker在linux上运行，然后将将项目运行起来
 
+`注意:项目会默认占用80，3306，443，3000端口，如果端口被占用，应先停下其被占用的端口的程序,暂停例子如下`：
+
+```shell
+sudo systemctl stop apache2.service # 暂停apache2
+sudo systemctl stop mysql.service # 暂停mysql
+```
+
+如果想换占用的端口，请修改`backend/docker-compose.yml`里面的内容，（有注释，请自行修改相关端口号）
+
 ### windwos
 
 因为`nodejs`版本错综杂乱，前端的构建建议在windwos平台上进行构建，
