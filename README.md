@@ -4,6 +4,8 @@
 
 ## 软件前置要求
 
+云上服务器需要开通相应的端口号，在安全组上进行开通，80，3306，443基本默认开通，`请一定要开通3000端口号`。
+
 在linux平台上需要的前置软件需要，这里使用的是 xshell连接数据库进行平台部署，然后navicat连接数据库进行修改信息，docker在linux上运行，然后将将项目运行起来
 
 `注意:项目会默认占用80，3306，443，3000端口，如果端口被占用，应先停下其被占用的端口的程序,暂停例子如下`：
@@ -41,8 +43,8 @@ sudo apt install lrzsz # xshell 进行传输文件
 
 ## 项目大致结构
 
-- `frontend`是前端，需要发送api请求到后端，所以如果要部署项目的话，那么就需要修改前端的api请求
-- `backend`是后端，是所有的文件，默认生成的dist文件已经在此里面了，但是每次配置的ip地址不同，需要根据需要构建前端，然后放到`backend/fronted/html/`里面即可。
+- `zzuli-vue`是前端，需要发送api请求到后端，所以如果要部署项目的话，那么就需要修改前端的api请求
+- `zzuli-rank`是后端，是所有的文件，默认生成的dist文件已经在此里面了，但是每次配置的ip地址不同，需要根据需要构建前端，然后放到`backend/fronted/html/`里面即可。
 - `template`是模板，导入到数据库里面去的。
 
 以下是部署此项目的大致流程
@@ -51,16 +53,9 @@ sudo apt install lrzsz # xshell 进行传输文件
 
 前端需要修改`api`请求地址，并且使用`nodejs`进行编译生成目标文件`dist`,并且放入到`backend/frontend/html`文件中即可。
 
-需要修改的api地址如下：
-
-- frontend/src/components/manager-view.vue
-- frontend/src/components/student-rank.vue
-- frontend/src/components/team-rank.vue
-- frontend/src/App.vue
+修改的地址是`zzuli-vue/config.js`中，将其中的ip地址改成对应服务器的ip地址即可
 
 以上文件都有相关注释，根据注释进行改动。
-
-`ctrl + f`一键搜索`axios`,并且将附近的ip地址（默认是localhost:3000）,`只要将localhost地址换成部署服务器的地址即可，端口号不需要进行更改`.
 
 然后进行编译（一下操作建议在windwos平台上进行，非常快就可以build生成）：
 
@@ -102,7 +97,7 @@ docker-compose down
 
 ```text
 user: root
-password: mysqlpassword
+password: zzulirank_2023
 ```
 
 使用以上账号即可登录数据库，然后`需要根据excel表格导入到数据库里面，只需要处理两个表即可： Student_Info 和 Team_Info`即可，`这里我们选择使用excel表格进行导入`。
@@ -130,7 +125,11 @@ team_id team          class             stuid            name
 
 ## 管理界面
 
-管理界面默认即使`(http://localhost/manager_2023`，这里面填写对应的`PTA_Session`和`Problem_Set`即可，并且修改分数也可以的。
+管理界面默认即使`(http://localhost/zzulirank_manage`，这里面填写对应的`PTA_Session`和`Problem_Set`即可，并且修改分数也可以的,注意，这里将名字写上去，前台就可以显示出对应的榜单的名字了
+
+>`PTA_Session`和`Problem_Set`通过是本次比赛cookie相关，向老师询问或者自己检查，就可以得到相关`cookie`。
+
+此时，榜单就可以进行运作了
 
 ## 结束之后
 
