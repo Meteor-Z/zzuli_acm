@@ -125,7 +125,7 @@ team_id team          class             stuid            name
 
 ## 管理界面
 
-管理界面默认即使`(http://localhost/zzulirank_manage`，这里面填写对应的`PTA_Session`和`Problem_Set`即可，并且修改分数也可以的,注意，这里将名字写上去，前台就可以显示出对应的榜单的名字了
+管理界面默认即是`(http://localhost/zzulirank_manage`，这里面填写对应的`PTA_Session`和`Problem_Set`即可，并且修改分数也可以的,注意，这里将名字写上去，前台就可以显示出对应的榜单的名字了
 
 >`PTA_Session`和`Problem_Set`通过是本次比赛cookie相关，向老师询问或者自己检查，就可以得到相关`cookie`。
 
