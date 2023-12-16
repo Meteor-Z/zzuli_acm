@@ -27,7 +27,7 @@ services:
     image: nginx:1.15-alpine
     restart: always
     ports:
-      - "8082:8082"
+      - "80:8082"
     volumes:
       - ./frontend/html/dist:/home/nginx/vue
       - ./frontend/logs:/var/log/nginx
@@ -42,7 +42,7 @@ services:
       MYSQL_ROOT_PASSWORD: zzulirank_2023
       MYSQL_DATABASE: PTA_Data
     ports:
-      - "6130:3306"
+      - "3306:3306"
     volumes:
       - ./mysql/:/var/lib/mysql
       - ./mysql/install:/docker-entrypoint-initdb.d
