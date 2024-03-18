@@ -1,0 +1,49 @@
+version : '3'
+services:
+  zzulirank-data_updater:
+    container_name: zzulirank-data_updater
+    build: 
+      context: ./DataUpdater
+    restart: always
+    volumes:
+      - ./DataUpdater/competition_info.py:/home/python/data_updater/competition_info.py
+      - ./DataUpdater/student_score.py:/home/python/data_updater/student_score.py
+      - ./DataUpdater/team_score.py:/home/python/data_updater/team_score.py
+    depends_on:
+      - zzulirank-mysql
+
+  zzulirank-backend:
+    container_name: zzulirank-backend
+    build: 
+      context: ./backend
+    restart: always
+    ports:
+      - "3000:3000"
+    depends_on:
+      - zzulirank-mysql
+
+  zzulirank-frontend:
+    container_name: zzulirank-frontend
+    image: nginx:1.15-alpine
+    restart: always
+    ports:
+      - "8082:8082"
+    volumes:
+      - ./frontend/html/dist:/home/nginx/vue
+      - ./frontend/logs:/var/log/nginx
+      - ./frontend/conf.d:/etc/nginx/conf.d
+    depends_on:
+      - zzulirank-backend
+
+  zzulirank-mysql:
+    container_name: zzulirank-mysql
+    image: mysql:5.6
+    environment:
+      MYSQL_ROOT_PASSWORD: zzulirank_2024
+      MYSQL_DATABASE: PTA_Data
+    ports:
+      - "6130:3306"
+    volumes:
+      - ./mysql/:/var/lib/mysql
+      - ./mysql/install:/docker-entrypoint-initdb.d
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci

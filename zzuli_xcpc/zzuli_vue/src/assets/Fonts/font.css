@@ -1,0 +1,18 @@
+@font-face {
+    font-family: "CommitMono";
+    src: url('./CommitMono-700-Regular.otf');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Harmony_Bold";
+    src: url('./HarmonyOS_Sans_SC_Bold.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Harmony_Regular";
+    src: url('./HarmonyOS_Sans_SC_Regular.ttf');
+    font-weight: normal;
+    font-style: normal;
+}

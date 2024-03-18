@@ -1,6 +1,10 @@
-# zzuli_gplt
+# zzuli_acm
 
-如有任何问题，都可以直接提出 issuse 与 pr。
+- 如有任何问题，都可以直接提出 issuse 与 pr。
+- 目前有zzuli_xcpc 和 zzuli_gplt 两个版本，两者都可以通用以下的版本
+
+- `zzuli_acm`：是acm赛制，可以组队，也可以新生赛
+- `zzuli_gplt`: 是新生天梯赛
 
 ## 软件前置要求
 
